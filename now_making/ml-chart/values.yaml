@@ -4,11 +4,22 @@
 
 replicaCount: 1
 
-image:
-  repository: nginx
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+images:
+  firstImage:
+    repository: ml-img
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: "ml-env"
+  secondImage:
+    repository: alpine
+    pullPolicy: IfNotPresent
+    tag: "latest"
+
+mainContainer:
+  name: "ml-env"
+
+sideContainer:
+  name: "sidecart-container"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -72,7 +83,7 @@ resources: {}
 autoscaling:
   enabled: false
   minReplicas: 1
-  maxReplicas: 100
+  maxReplicas: 1
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 

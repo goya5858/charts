@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: deploy-mlenv
-  name: deploy-mlenv
+    app: {{ include "ml-chart.name" . }}
+  name: {{ include "ml-chart.fullname" . }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: deploy-mlenv
+      app: {{ include "ml-chart.name" . }}
   template:
     metadata:
       labels:
-        app: deploy-mlenv
+        app: {{ include "ml-chart.name" . }}
     spec:
       containers:
       #メインコンテナの作成 
-      - name: ml-container
-        image: goyagoya5858/ml-img:2.0
+      - name: {{ .Values.mainContainer.name }}
+        image: "{{ .Values.images.firstImage.repository }}:{{ .Values.images.firstImage.tag }}"
         volumeMounts: #my-volumeという名のVolumeをコンテナにマウントする
         - mountPath: /workspace/
           name: my-volume
@@ -25,8 +25,8 @@ spec:
         tty: true
 
        #サイドカーコンテナの作成 今回はただの飾り
-      - name: side-car-container
-        image: alpine:latest
+      - name: {{ .Values.sideContainer.name }}
+        image: "{{ .Values.images.secondImage.repository }}:{{ .Values.images.secondImage.tag }}"
         tty: true 
 
       volumes:

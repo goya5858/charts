@@ -8,8 +8,6 @@ metadata:
     "helm.sh/hook": test
 spec:
   containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['{{ include "ml-chart.fullname" . }}:{{ .Values.service.port }}']
+    - name: {{ .Values.mainContainer.name }}
+      image: "{{ .Values.images.firstImage.repository }}:{{ .Values.images.firstImage.tag }}"
   restartPolicy: Never
