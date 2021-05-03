@@ -3,7 +3,7 @@ entries:
   example:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-05-03T22:55:01.84738+09:00"
+    created: "2021-05-03T23:02:25.623742+09:00"
     description: A Helm chart for Kubernetes
     digest: f15ee416e4ee3b7857ee4d27fc714534e53cfb37e08efcad6b2ea828c46ed3b6
     name: example
@@ -11,4 +11,15 @@ entries:
     urls:
     - example-0.1.0.tgz
     version: 0.1.0
-generated: "2021-05-03T22:55:01.846419+09:00"
+  happyhelm:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-05-03T23:02:25.624557+09:00"
+    description: A Helm chart for Kubernetes
+    digest: 3c24146258c0da4426c624e0f0dc00ba1a038c961562fd29ee84d25449075d4d
+    name: happyhelm
+    type: application
+    urls:
+    - happyhelm-1.0.0.tgz
+    version: 1.0.0
+generated: "2021-05-03T23:02:25.606249+09:00"
