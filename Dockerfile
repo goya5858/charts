@@ -13,5 +13,6 @@ RUN apt update -y && \
 
 RUN pip install -U ipykernel --user
 
-#COPY ./ /workspace/
 WORKDIR /workspace/
+#COPY ./:.
+
