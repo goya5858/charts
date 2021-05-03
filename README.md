@@ -1,0 +1,4 @@
+Helm用のChart作成場  
+
+stableディレクトリに作成済Chartを置いてあります
+now_workingは作成中のChart置き場  
