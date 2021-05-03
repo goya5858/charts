@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: deploy-mlenv
+  name: deploy-mlenv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-mlenv
+  template:
+    metadata:
+      labels:
+        app: deploy-mlenv
+    spec:
+      containers:
+      #メインコンテナの作成 
+      - name: ml-container
+        image: goyagoya5858/ml-img:2.0
+        volumeMounts: #my-volumeという名のVolumeをコンテナにマウントする
+        - mountPath: /workspace/
+          name: my-volume
+        workingDir: /workspace/
+        tty: true
+
+       #サイドカーコンテナの作成 今回はただの飾り
+      - name: side-car-container
+        image: alpine:latest
+        tty: true 
+
+      volumes:
+        - name: my-volume
+          persistentVolumeClaim:
+            claimName: my-pvc
+        
