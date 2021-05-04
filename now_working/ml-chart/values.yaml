@@ -22,19 +22,19 @@ sideContainer:
   name: "sidecart-container"
 
 PV:
-  name: "my-PV"
-  path: "/Users/"
+  name: my-pv
+  path: "/"
   strage: 1Gi
   mode: ReadWriteOnce
 
 PVC:
-  name: "my-PVC"
+  name: my-pvc
   strage: 1Gi
   mode: ReadWriteOnce
+  useStorageClass: false
 
 Volumes:
   name: my-volume
-
 
 
 
