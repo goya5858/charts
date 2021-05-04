@@ -10,6 +10,6 @@ spec:
     requests:
       storage: {{ .Values.PVC.strage }}
   
-  {{-if useStorageClass }}
+  {{- if .Values.PVC.useStorageClass }}
   storageClassName: gp2  #<---　docker-desktopで使う場合はコメントアウトする
   {{- end -}}
