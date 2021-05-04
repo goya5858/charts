@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: my-pvc
+  name: {{ .Values.PVC.name }}
 spec:
   storageClassName: manual
   accessModes:
-  - ReadWriteOnce
+  - {{ .Values.PVC.mode }}
   resources:
     requests:
-      storage: 1Gi
+      storage: {{ .Values.PVC.strage }}
+  
   #storageClassName: gp2  #<---　docker-desktopで使う場合はコメントアウトする

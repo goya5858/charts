@@ -21,6 +21,25 @@ mainContainer:
 sideContainer:
   name: "sidecart-container"
 
+PV:
+  name: "my-PV"
+  path: "/Users/"
+  strage: 1Gi
+  mode: ReadWriteOnce
+
+PVC:
+  name: "my-PVC"
+  strage: 1Gi
+  mode: ReadWriteOnce
+
+Volumes:
+  name: my-volume
+
+
+
+
+
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""

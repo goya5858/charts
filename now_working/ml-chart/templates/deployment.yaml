@@ -18,9 +18,9 @@ spec:
       #メインコンテナの作成 
       - name: {{ .Values.mainContainer.name }}
         image: "{{ .Values.images.firstImage.repository }}:{{ .Values.images.firstImage.tag }}"
-        volumeMounts: #my-volumeという名のVolumeをコンテナにマウントする
+        volumeMounts: 
         - mountPath: /workspace/
-          name: my-volume
+          name: {{ .Values.Volumes.name }}
         workingDir: /workspace/
         tty: true
 
@@ -30,7 +30,7 @@ spec:
         tty: true 
 
       volumes:
-        - name: my-volume
+        - name: {{ .Values.Volumes.name }}
           persistentVolumeClaim:
-            claimName: my-pvc
+            claimName: {{ .Values.PVC.name }}
         
