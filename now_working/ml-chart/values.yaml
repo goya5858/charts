@@ -23,7 +23,7 @@ sideContainer:
 
 PV:
   name: my-pv
-  path: "/"
+  path: "/Users/okuzakihidetake/Desktop/GitRepos/titanic"
   strage: 1Gi
   mode: ReadWriteOnce
 
